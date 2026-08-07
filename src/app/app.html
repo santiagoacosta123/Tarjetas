@@ -1,23 +1,36 @@
-<header>
-  <h2>Mi sitio</h2>
-
-  <input type="checkbox" id="menu">
-
-  <label for="menu" class="boton-menu">🍔</label>
-
-  <nav>
-    <a href="#clientes">Clientes</a>
-    <a href="#direcciones">Direcciones</a>
-    <a href="#ciudades">Ciudades</a>
-    <a href="#paises">Países</a>
-  </nav>
+<header class="bg-zinc-950 text-white shadow-lg">
+  <div class="flex items-center justify-between px-6 py-4">
+    <button
+      (click)="menuH = !menuH"
+      class="text-3xl font-bold hover:text-indigo-200 transition">
+      ☰
+    </button>
+    <h1 class="text-2xl font-bold tracking-wide">
+      Menu
+    </h1>
+  </div>
 </header>
 
-<h1>Bienvenido</h1>
+<div class="flex">
 
+    @if(menuH){
+      <aside class="w-64 h-screen bg-zinc-900 text-slate-300 p-5 shadow-xl border-r border-slate-800">
+        <nav class="flex flex-col gap-2">
 
+            <a routerLink="/clientes">Clientes</a>
 
+            <a routerLink="/direcciones">Direcciones</a>
 
+            <a routerLink="/formulario-ciudad">Ciudades</a>
 
+            <a routerLink="/">Países</a>
 
-<router-outlet />
+        </nav>
+
+    </aside>
+
+    }
+<main class="flex-1 p-6 bg-slate-50 min-h-screen">
+      <router-outlet></router-outlet>
+    </main>
+</div>
