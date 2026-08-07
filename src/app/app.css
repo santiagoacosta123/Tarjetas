@@ -1,0 +1,43 @@
+header {
+  background: #222;
+  color: white;
+  width: 200px;
+  height: 100vh;
+  padding: 15px;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+#menu {
+  display: none;
+}
+
+.boton-menu {
+  cursor: pointer;
+  display: block;
+  font-size: 30px;
+  margin-top: 20px;
+}
+
+nav {
+  display: none;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+#menu:checked ~ nav {
+  display: flex;
+}
+
+nav a {
+  color: white;
+  margin: 10px 0;
+  text-decoration: none;
+}
+
+h1,
+section {
+  margin-left: 230px;
+  padding: 10px;
+}
