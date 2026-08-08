@@ -1,23 +1,94 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
-import { ListarDirecciones } from './listar-direcciones';
+interface Direccion {
+  address_id: number;
+  address: string;
+  district: string;
+  city_id: number;
+  phone: string;
+}
 
-describe('ListarDirecciones', () => {
-  let component: ListarDirecciones;
-  let fixture: ComponentFixture<ListarDirecciones>;
+@Component({
+  selector: 'app-listar-direcciones',
+  imports: [],
+  templateUrl: './listar-direcciones.html',
+  styleUrl: './listar-direcciones.css'
+})
+export class ListarDirecciones {
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [ListarDirecciones]
-    })
-    .compileComponents();
+  direcciones: Direccion[] = [];
 
-    fixture = TestBed.createComponent(ListarDirecciones);
-    component = fixture.componentInstance;
-    await fixture.whenStable();
-  });
+  constructor(private http: HttpClient) {}
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+  ngOnInit() {
+    this.traerDirecciones();
+  }
+
+  traerDirecciones() {
+
+    this.http.get<Direccion[]>(
+      'https://srrpeanqjqfxtnuwhjez.supabase.co/rest/v1/address?select=address_id,address,district,city_id,phone&order=address_id.desc',
+      {
+        headers: {
+          apikey: 'sb_publishable_qnp1xzi89N_0c2Yex-wbwQ_ddmCG28x',
+          Authorization: 'Bearer sb_publishable_qnp1xzi89N_0c2Yex-wbwQ_ddmCG28x'
+        }
+      }
+    ).subscribe({
+
+      next: (respuesta) => {
+        this.direcciones = respuesta;
+      },
+
+      error: (error) => {
+        console.log(error);
+        alert('No se pudieron cargar las direcciones');
+      }
+
+    });
+
+  }
+
+
+  eliminarDireccion(id: number) {
+
+    const confirmar = confirm(
+      '¿Está seguro de eliminar esta dirección?'
+    );
+
+    if (!confirmar) {
+      return;
+    }
+
+    this.http.delete(
+      `https://srrpeanqjqfxtnuwhjez.supabase.co/rest/v1/address?address_id=eq.${id}`,
+      {
+        headers: {
+          apikey: 'sb_publishable_qnp1xzi89N_0c2Yex-wbwQ_ddmCG28x',
+          Authorization: 'Bearer sb_publishable_qnp1xzi89N_0c2Yex-wbwQ_ddmCG28x'
+        }
+      }
+    ).subscribe({
+
+      next: () => {
+
+        alert('Dirección eliminada correctamente');
+
+        this.traerDirecciones();
+
+      },
+
+      error: (error) => {
+
+        console.log(error);
+
+        alert('No se pudo eliminar la dirección');
+
+      }
+
+    });
+
+  }
+
+}
