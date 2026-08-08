@@ -1,0 +1,83 @@
+.contenedor-clientes {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.tarjeta-cliente {
+  background: white;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.cabecera {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.avatar {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  background: #dbeafe;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.cabecera h2 {
+  margin: 0 0 5px 0;
+}
+
+.activo,
+.inactivo {
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 13px;
+}
+
+.activo {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.inactivo {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.informacion p {
+  padding: 8px 0;
+  margin: 0;
+  border-bottom: 1px solid #eee;
+}
+
+.acciones {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.acciones button {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.btn-actualizar {
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+
+.btn-eliminar {
+  background: #fee2e2;
+  color: #dc2626;
+}
