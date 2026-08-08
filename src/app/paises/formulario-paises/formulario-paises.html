@@ -1,1 +1,74 @@
-<p>formulario-paises works!</p>
+<div class="p-8">
+
+
+  <h1 class="text-3xl font-bold text-gray-700">
+    Gestión de Países
+  </h1>
+
+  <p class="text-gray-500 mb-6">
+    Administra los países del sistema
+  </p>
+
+ 
+  <div class="flex gap-3 mb-8">
+
+    <a
+      routerLink="/listar-paises"
+      class="bg-gray-800 text-white px-5 py-3 rounded">
+      Listar
+    </a>
+
+    <a
+      routerLink="/"
+      class="bg-blue-600 text-white px-5 py-3 rounded">
+       Nuevo país
+    </a>
+
+    <a
+      routerLink="/listar-paises"
+      class="bg-gray-700 text-white px-5 py-3 rounded">
+       Actualizar
+    </a>
+
+  </div>
+
+
+  <div class="bg-white border rounded-lg p-6 max-w-2xl">
+
+    <h2 class="text-2xl font-bold text-gray-700 mb-2">
+      Registrar País
+    </h2>
+
+    <p class="text-gray-500 mb-6">
+      Registra un nuevo país
+    </p>
+
+    <form (ngSubmit)="guardarPais()">
+
+      <div class="mb-5">
+
+        <label class="block font-semibold mb-2">
+          Nombre del país
+        </label>
+
+        <input
+          type="text"
+          name="country"
+          [(ngModel)]="nuevoPais.country"
+          placeholder="Ingrese el nombre del país"
+          class="w-full border border-gray-300 rounded px-4 py-3"
+          required>
+
+      </div>
+
+      <button
+        type="submit"
+        class="bg-blue-600 text-white px-5 py-3 rounded">
+        Guardar país
+      </button>
+
+    </form>
+
+  </div>
+
+</div>

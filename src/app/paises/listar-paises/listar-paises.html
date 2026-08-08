@@ -1,1 +1,100 @@
-<p>listar-paises works!</p>
+<div class="p-8">
+
+  <h1 class="text-3xl font-bold text-gray-700">
+    Gestión de Países
+  </h1>
+
+  <p class="text-gray-500 mb-6">
+    Administra los países del sistema
+  </p>
+
+
+  <div class="flex gap-3 mb-8">
+
+    <a
+      routerLink="/listar-paises"
+      class="bg-gray-800 text-white px-5 py-3 rounded">
+       Listar
+    </a>
+
+    <a
+      routerLink="/"
+      class="bg-blue-600 text-white px-5 py-3 rounded">
+       Nuevo país
+    </a>
+
+  </div>
+
+
+  <div class="bg-white border rounded-lg p-6">
+
+    <h2 class="text-2xl font-bold text-gray-700">
+      Lista de Países
+    </h2>
+
+    <p class="text-gray-500 mb-5">
+      Países registrados
+    </p>
+
+    <table class="w-full border-collapse">
+
+      <thead>
+
+        <tr class="bg-gray-800 text-white">
+
+          <th class="p-3 text-left">
+            ID
+          </th>
+
+          <th class="p-3 text-left">
+            País
+          </th>
+
+          <th class="p-3 text-center">
+            Acciones
+          </th>
+
+        </tr>
+
+      </thead>
+
+      <tbody>
+
+        <tr
+          *ngFor="let pais of paises"
+          class="border-b">
+
+          <td class="p-3">
+            {{ pais.country_id }}
+          </td>
+
+          <td class="p-3">
+            {{ pais.country }}
+          </td>
+
+          <td class="p-3 text-center">
+
+            <a
+              [routerLink]="['/actualizar-paises', pais.country_id]"
+              class="bg-gray-700 hover:bg-gray-800 text-white px-3 py-2 rounded mr-2">
+            Actualizar
+            </a>
+
+          <button
+          type="button"
+          (click)="eliminarPais(pais.country_id)"
+          class="bg-gray-900 hover:bg-black text-white px-3 py-2 rounded">
+          Eliminar
+          </button>
+
+          </td>
+
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+</div>
