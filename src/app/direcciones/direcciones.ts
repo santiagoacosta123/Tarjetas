@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-
 import { ListarDirecciones } from './listar-direcciones/listar-direcciones';
 import { CrearDirecciones } from './crear-direcciones/crear-direcciones';
 import { ActualizarDirecciones } from './actualizar-direcciones/actualizar-direcciones';
@@ -11,23 +10,14 @@ import { ActualizarDirecciones } from './actualizar-direcciones/actualizar-direc
     CrearDirecciones,
     ActualizarDirecciones
   ],
-  templateUrl: './direcciones.html',
-  styleUrl: './direcciones.css'
+  templateUrl: './direcciones.html'
 })
 export class Direcciones {
 
-  vista = 'listar';
+  seccion = '';
 
-  mostrarListar() {
-    this.vista = 'listar';
-  }
-
-  mostrarCrear() {
-    this.vista = 'crear';
-  }
-
-  mostrarActualizar() {
-    this.vista = 'actualizar';
+  mostrar(seccion: string) {
+    this.seccion = seccion;
   }
 
 }

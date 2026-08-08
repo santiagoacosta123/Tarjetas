@@ -2,7 +2,6 @@ import { Routes } from '@angular/router';
 import { FormularioCiudad } from './ciudad/formulario-ciudad/formulario-ciudad';
 import { ListarCiudad } from './ciudad/listar-ciudad/listar-ciudad';
 import { ActualizarCiudad } from './ciudad/actualizar-ciudad/actualizar-ciudad';
-import { TarjetasCiudad } from './ciudad/tarjetas-ciudad/tarjetas-ciudad';
 
 import { Clientes } from './clientes/clientes';
 import { CrearClientes } from './clientes/crear-clientes/crear-clientes';
@@ -46,10 +45,6 @@ export const routes: Routes = [
   {
     path: 'actualizar-ciudad/:id',
     component: ActualizarCiudad
-  },
-  {
-    path: 'tarjetas-ciudad',
-    component: TarjetasCiudad
   },
 
   {
