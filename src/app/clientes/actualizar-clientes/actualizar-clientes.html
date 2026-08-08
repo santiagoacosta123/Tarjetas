@@ -1,1 +1,58 @@
-<p>actualizar-clientes works!</p>
+<div class="mb-5">
+    <div class="flex items-center justify-between">
+    <div>
+        <h1 class="text-2xl font-bold text-zinc-900">Actualizar Cliente</h1>
+        <p class="text-sm text-slate-500 mt-1">Modifica la información del cliente</p>
+    </div>
+    </div>
+</div>
+
+<form (ngSubmit)="actualizarCliente()" 
+class="bg-white p-8 rounded-lg shadow-md border border-slate-200">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+
+    <div>
+        <label class="block mb-2 text-zinc-700 font-semibold">ID Tienda</label>
+        <input placeholder="Escriba el ID de la tienda" name="store_id" [(ngModel)]="cliente.store_id" 
+        class="w-full border border-slate-300 p-3 rounded">
+    </div>
+
+    <div>
+        <label class="block mb-2 text-zinc-700 font-semibold">Nombre</label>
+        <input placeholder="Escriba el nombre" name="first_name" [(ngModel)]="cliente.first_name" 
+        class="w-full border border-slate-300 p-3 rounded">
+    </div>
+
+    <div>
+        <label class="block mb-2 text-zinc-700 font-semibold">Apellido</label>
+        <input placeholder="Escriba el apellido" name="last_name" [(ngModel)]="cliente.last_name" 
+        class="w-full border border-slate-300 p-3 rounded">
+    </div>
+
+    <div>
+        <label class="block mb-2 text-zinc-700 font-semibold">Correo</label>
+        <input placeholder="Escriba el correo" name="email" [(ngModel)]="cliente.email" 
+        class="w-full border border-slate-300 p-3 rounded">
+    </div>
+
+    <div>
+        <label class="block mb-2 text-zinc-700 font-semibold">ID Dirección</label>
+        <input placeholder="Escriba el ID de dirección" name="address_id" [(ngModel)]="cliente.address_id" 
+        class="w-full border border-slate-300 p-3 rounded">
+    </div>
+
+    <div>
+        <label class="block mb-2 text-zinc-700 font-semibold">Estado</label>
+        <select name="active" [(ngModel)]="cliente.active" 
+        class="w-full border border-slate-300 p-3 rounded">
+        <option [ngValue]="true">Activo</option>
+        <option [ngValue]="false">Inactivo</option>
+        </select>
+    </div>
+
+    </div>
+
+    <div class="flex justify-end mt-6">
+    <button type="submit" class="bg-zinc-900 text-white px-5 py-3 rounded hover:bg-zinc-900">Actualizar Cliente</button>
+    </div>
+</form>
