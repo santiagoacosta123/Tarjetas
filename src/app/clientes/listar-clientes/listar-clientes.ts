@@ -69,11 +69,4 @@ export class ListarClientes {
   actualizarCliente(id: number) {
     this.router.navigate(['/actualizar-clientes', id]);
 }
-get clientesActivos() {
-  return this.clientes.filter(cliente => cliente.active).length;
-}
-
-get clientesInactivos() {
-  return this.clientes.filter(cliente => !cliente.active).length;
-}
 }
